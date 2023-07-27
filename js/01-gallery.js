@@ -19,7 +19,7 @@ ulGal.addEventListener(`click`, onImgClick);
 
 function onImgClick(event) {
   event.preventDefault();
-  if (event.target.nodeName === !"IMG") {
+  if (event.target.nodeName !== "IMG") {
     return;
   }
 
@@ -27,6 +27,7 @@ function onImgClick(event) {
     <img src="${event.target.dataset.source}" width="800" height="600">
 `);
   instance.show();
+  console.dir(event.target);
   window.addEventListener(`keydown`, onEscClose);
   function onEscClose(event) {
     if (event.code !== "Escape") return;
